@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: efni_development
+  username: efni
+  password: secret
+
+test:
+  <<: *default
+  database: efni_test
+  username: efni
+  password: secret
+
+production:
+  <<: *default
+  database: efni_production
+  username: efni
+  password: <%= ENV['EFNI_DATABASE_PASSWORD'] %>
